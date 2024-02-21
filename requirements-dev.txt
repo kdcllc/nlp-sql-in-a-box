@@ -1,0 +1,3 @@
+-r requirements-db.txt
+
+faker

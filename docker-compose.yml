@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  
+  langchain_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      - APP_SCRIPT=./langchain/web.py
+      - REQ_NAME=requirements-lang.txt
+    volumes:
+      - .:/usr/src/langchain_app
+  
+  semantic_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env      
+    environment:
+      - APP_SCRIPT=./semantic/web.py
+      - REQ_NAME=requirements-sem.txt
+    volumes:
+      - .:/usr/src/semantic_app
